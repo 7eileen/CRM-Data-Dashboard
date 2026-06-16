@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>新池工作台 - 团队数据看板</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">X</div>
+        <strong>新池集团</strong>
+      </div>
+      <nav class="product-nav" aria-label="顶部导航">
+        <button class="top-link">新池工作台</button>
+        <button class="top-link active">国内达人</button>
+      </nav>
+      <div class="user-actions">
+        <button class="return-btn">返回工作台</button>
+        <button class="profile" aria-label="用户菜单">
+          <span class="avatar"></span>
+          <span>戴娜</span>
+        </button>
+      </div>
+    </header>
+
+    <aside class="sidebar" aria-label="侧边导航">
+      <button class="nav-item" data-section="leads">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        </svg>
+        <span>客户线索管理</span>
+      </button>
+      <button class="nav-item active" data-section="dashboard">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 3v18h18" />
+          <path d="M8 17V9" />
+          <path d="M13 17V5" />
+          <path d="M18 17v-4" />
+        </svg>
+        <span>团队数据看板</span>
+      </button>
+      <button class="nav-item" data-section="rules">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 21v-7" />
+          <path d="M4 10V3" />
+          <path d="M12 21v-9" />
+          <path d="M12 8V3" />
+          <path d="M20 21v-5" />
+          <path d="M20 12V3" />
+          <path d="M1 14h6" />
+          <path d="M9 8h6" />
+          <path d="M17 16h6" />
+        </svg>
+        <span>CRM规则设置</span>
+      </button>
+      <button class="nav-item" data-section="order">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <path d="M14 2v6h6" />
+          <path d="M8 13h8" />
+          <path d="M8 17h8" />
+        </svg>
+        <span>创建寄样订单</span>
+      </button>
+      <button class="nav-item" data-section="map">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx="1" />
+          <rect x="14" y="3" width="7" height="7" rx="1" />
+          <rect x="14" y="14" width="7" height="7" rx="1" />
+          <rect x="3" y="14" width="7" height="7" rx="1" />
+        </svg>
+        <span>作战地图</span>
+      </button>
+      <button class="collapse-handle" aria-label="收起侧栏">
+        <span></span>
+      </button>
+    </aside>
+
+    <main class="workspace">
+      <section class="tabbar" aria-label="页面标签">
+        <button class="page-tab">
+          <span>客户线索管理</span>
+          <span class="close">×</span>
+        </button>
+        <button class="page-tab active">
+          <span class="dot"></span>
+          <span>团队数据看板</span>
+          <span class="close">×</span>
+        </button>
+      </section>
+
+      <section class="scroll-area">
+        <h1>团队数据看板</h1>
+
+        <section class="dashboard-panel">
+          <div class="business-tabs" role="tablist" aria-label="看板分类">
+            <button class="active" role="tab" aria-selected="true">商务</button>
+            <button role="tab">品类</button>
+            <button role="tab">渠道</button>
+            <button role="tab">玩法</button>
+            <button role="tab">达人</button>
+          </div>
+
+          <section class="metric-grid" aria-label="关键指标">
+            <button class="metric-card amber" data-metric="达播GSV">
+              <span class="metric-icon">◔</span>
+              <span class="metric-title">达播GSV</span>
+              <strong>39,559,047.87</strong>
+            </button>
+            <button class="metric-card mint" data-metric="达人总数">
+              <span class="metric-icon">◔</span>
+              <span class="metric-title">达人总数</span>
+              <strong>1,333</strong>
+            </button>
+            <button class="metric-card violet" data-metric="达人GSV">
+              <span class="metric-icon">◔</span>
+              <span class="metric-title">达人GSV</span>
+              <strong>39,385,501.17</strong>
+            </button>
+            <button class="metric-card blue" data-metric="跟进次数">
+              <span class="metric-icon">◔</span>
+              <span class="metric-title">跟进次数</span>
+              <strong>283</strong>
+            </button>
+            <button class="metric-card amber" data-metric="新增达人数">
+              <span class="metric-icon">◔</span>
+              <span class="metric-title">新增达人数</span>
+              <strong>580</strong>
+            </button>
+            <button class="metric-card mint" data-metric="建联成功数">
+              <span class="metric-icon">◔</span>
+              <span class="metric-title">建联成功数</span>
+              <strong>522</strong>
+            </button>
+            <button class="metric-card violet" data-metric="寄样达人数">
+              <span class="metric-icon">◔</span>
+              <span class="metric-title">寄样达人数</span>
+              <strong>1,999</strong>
+            </button>
+            <button class="metric-card blue" data-metric="寄样件数">
+              <span class="metric-icon">◔</span>
+              <span class="metric-title">寄样件数</span>
+              <strong>0</strong>
+            </button>
+            <button class="metric-card amber" data-metric="新增开单达人数">
+              <span class="metric-icon">◔</span>
+              <span class="metric-title">新增开单达人数</span>
+              <strong>73</strong>
+            </button>
+            <button class="metric-card mint wide" data-metric="新增开单GSV">
+              <span class="metric-icon">◔</span>
+              <span class="metric-title">新增开单GSV</span>
+              <strong>4,851,014.64</strong>
+            </button>
+          </section>
+
+          <section class="filters" aria-label="筛选条件">
+            <button class="filter disabled">
+              <span>集团归属类型：</span>
+              <em>BABI 达播</em>
+            </button>
+            <button class="filter date">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="17" rx="2" />
+                <path d="M16 2v4" />
+                <path d="M8 2v4" />
+                <path d="M3 10h18" />
+              </svg>
+              <span>2026-05-17</span>
+              <span>-</span>
+              <span>2026-06-15</span>
+            </button>
+            <label class="filter input-filter">
+              <span>商务名称:</span>
+              <input type="text" placeholder="请输入" />
+              <button class="select-arrow" aria-label="展开商务名称">⌄</button>
+            </label>
+            <label class="filter input-filter">
+              <span>末级部门:</span>
+              <input type="text" placeholder="请输入" />
+              <button class="select-arrow" aria-label="展开末级部门">⌄</button>
+            </label>
+            <button class="clear-btn">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 12a9 9 0 0 1 14.65-7" />
+                <path d="M17 3v5h-5" />
+                <path d="M21 12a9 9 0 0 1-14.65 7" />
+                <path d="M7 21v-5h5" />
+              </svg>
+              <span>清空</span>
+            </button>
+          </section>
+
+          <section class="table-wrap" aria-label="商务明细">
+            <table>
+              <thead>
+                <tr>
+                  <th>归属人员</th>
+                  <th>末级部门</th>
+                  <th>入职年月</th>
+                  <th class="sortable" data-sort="total">达人总数 <span></span></th>
+                  <th class="sortable" data-sort="gmv">达人GMV <span></span></th>
+                  <th>跟进次数</th>
+                  <th>新增达人数</th>
+                  <th>建联成功数</th>
+                  <th>寄样达人数</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>赵磊</td>
+                  <td>专场C组</td>
+                  <td>2026-03-24</td>
+                  <td>25</td>
+                  <td>121686.08</td>
+                  <td>10</td>
+                  <td>20</td>
+                  <td>19</td>
+                  <td>11</td>
+                </tr>
+                <tr>
+                  <td>杨洁</td>
+                  <td>专场A组</td>
+                  <td>2023-05-22</td>
+                  <td>37</td>
+                  <td>930102.44</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>许嘉敏</td>
+                  <td>A2组</td>
+                  <td>2022-06-23</td>
+                  <td>62</td>
+                  <td>2700179.18</td>
+                  <td>10</td>
+                  <td>6</td>
+                  <td>3</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>郎嘉欣</td>
+                  <td>A1组</td>
+                  <td>2026-01-30</td>
+                  <td>47</td>
+                  <td>8077.6</td>
+                  <td>10</td>
+                  <td>21</td>
+                  <td>21</td>
+                  <td>9</td>
+                </tr>
+                <tr>
+                  <td>顾雨菲</td>
+                  <td>专场B组</td>
+                  <td>2025-11-12</td>
+                  <td>58</td>
+                  <td>638846.72</td>
+                  <td>12</td>
+                  <td>18</td>
+                  <td>16</td>
+                  <td>8</td>
+                </tr>
+                <tr>
+                  <td>韩可</td>
+                  <td>A3组</td>
+                  <td>2024-08-09</td>
+                  <td>74</td>
+                  <td>3509102.09</td>
+                  <td>18</td>
+                  <td>31</td>
+                  <td>27</td>
+                  <td>14</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <button class="helper" aria-label="智能助手">
+      <span class="helper-ear left"></span>
+      <span class="helper-ear right"></span>
+      <span class="helper-helmet"></span>
+      <span class="helper-face">
+        <i></i>
+        <i></i>
+      </span>
+      <span class="helper-scarf"></span>
+      <span class="helper-body">
+        <b>★</b>
+      </span>
+    </button>
+
+    <div class="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
