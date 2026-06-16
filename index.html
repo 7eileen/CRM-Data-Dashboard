@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>新池工作台 - 团队数据看板</title>
-    <link rel="stylesheet" href="styles.css?v=20260616-influencer" />
+    <link rel="stylesheet" href="styles.css?v=20260616-unfollowed-followup" />
   </head>
   <body>
     <header class="topbar">
@@ -104,6 +104,7 @@
             <button role="tab">渠道</button>
             <button role="tab">玩法</button>
             <button role="tab">达人</button>
+            <button role="tab">未跟进达人</button>
           </div>
 
           <section class="metric-grid" aria-label="关键指标">
@@ -163,22 +164,6 @@
               </span>
               <strong>522</strong>
             </button>
-            <button class="metric-card violet" data-metric="寄样达人数">
-              <span class="metric-icon">◔</span>
-              <span class="metric-label">
-                <span class="metric-title">寄样达人数</span>
-                <span class="metric-help" data-tooltip="查询时间段内该商务的寄样订单记录数，仅当达人首次跟进时间在范围内时才统计">?</span>
-              </span>
-              <strong>1,999</strong>
-            </button>
-            <button class="metric-card blue" data-metric="寄样件数">
-              <span class="metric-icon">◔</span>
-              <span class="metric-label">
-                <span class="metric-title">寄样件数</span>
-                <span class="metric-help" data-tooltip="寄样订单中所有商品的数量之和，按品类维度时只统计当前品类">?</span>
-              </span>
-              <strong>0</strong>
-            </button>
             <button class="metric-card amber" data-metric="新增开单达人数">
               <span class="metric-icon">◔</span>
               <span class="metric-label">
@@ -195,11 +180,27 @@
               </span>
               <strong>4,851,014.64</strong>
             </button>
+            <button class="metric-card violet" data-metric="寄样达人数">
+              <span class="metric-icon">◔</span>
+              <span class="metric-label">
+                <span class="metric-title">寄样达人数</span>
+                <span class="metric-help" data-tooltip="查询时间段内该商务的寄样订单记录数，仅当达人首次跟进时间在范围内时才统计">?</span>
+              </span>
+              <strong>1,999</strong>
+            </button>
+            <button class="metric-card blue" data-metric="寄样件数">
+              <span class="metric-icon">◔</span>
+              <span class="metric-label">
+                <span class="metric-title">寄样件数</span>
+                <span class="metric-help" data-tooltip="寄样订单中所有商品的数量之和，按品类维度时只统计当前品类">?</span>
+              </span>
+              <strong>0</strong>
+            </button>
           </section>
 
           <section class="filters" aria-label="筛选条件">
             <button class="filter disabled">
-              <span>集团归属类型：</span>
+              <span>集团跟进类型：</span>
               <em>BABI 达播</em>
             </button>
             <button class="filter date">
@@ -238,7 +239,7 @@
             <table>
               <thead>
                 <tr>
-                  <th>归属人员</th>
+                  <th>跟进人员</th>
                   <th>末级部门</th>
                   <th>入职年月</th>
                   <th class="sortable" data-sort="total">达人总数 <span></span></th>
@@ -324,6 +325,6 @@
     </main>
 
     <div class="toast" role="status" aria-live="polite"></div>
-    <script src="script.js?v=20260616-influencer"></script>
+    <script src="script.js?v=20260616-unfollowed-followup"></script>
   </body>
 </html>

@@ -13,15 +13,15 @@ let toastTimer;
 let currentView = "business";
 
 const tooltipMap = {
-  "归属优惠金额": "查询时间段内归属达人的成交优惠金额求和",
-  "归属总GSV": "查询时间段内归属达人的成交净额求和",
-  "归属退款金额": "查询时间段内归属达人的退款金额求和",
+  "跟进优惠金额": "查询时间段内跟进达人的成交优惠金额求和",
+  "跟进总GSV": "查询时间段内跟进达人的成交净额求和",
+  "跟进退款金额": "查询时间段内跟进达人的退款金额求和",
 };
 
 const influencerMetrics = [
-  { tone: "amber", title: "归属优惠金额", value: "4,997,538.92" },
-  { tone: "mint", title: "归属总GSV", value: "39,938,170.87" },
-  { tone: "violet", title: "归属退款金额", value: "14,957,868.59" },
+  { tone: "amber", title: "跟进优惠金额", value: "4,997,538.92" },
+  { tone: "mint", title: "跟进总GSV", value: "39,938,170.87" },
+  { tone: "violet", title: "跟进退款金额", value: "14,957,868.59" },
 ];
 
 const influencerRows = [
@@ -83,6 +83,49 @@ const influencerRows = [
   },
 ];
 
+const unfollowedRows = [
+  {
+    name: "小栗子不熬夜",
+    uid: "11203948021",
+    gmv: "386,492.80",
+    category: "定妆喷雾",
+    platform: "抖音",
+    source: "达人自然流",
+  },
+  {
+    name: "一颗橘子呀",
+    uid: "10887455290",
+    gmv: "279,185.66",
+    category: "防晒喷雾",
+    platform: "抖音",
+    source: "达播",
+  },
+  {
+    name: "晚风美妆日记",
+    uid: "10089376145",
+    gmv: "193,850.12",
+    category: "粉底液",
+    platform: "快手",
+    source: "达人自然流",
+  },
+  {
+    name: "阿蓝护肤实验室",
+    uid: "9876420351",
+    gmv: "151,604.37",
+    category: "遮瑕",
+    platform: "小红书",
+    source: "达播",
+  },
+  {
+    name: "柚子今天营业",
+    uid: "7629042188",
+    gmv: "96,733.20",
+    category: "定型喷雾",
+    platform: "抖音",
+    source: "达人自然流",
+  },
+];
+
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (char) => {
     const entities = {
@@ -126,7 +169,7 @@ function renderMetricCard(metric) {
 function renderInfluencerFilters() {
   filters.innerHTML = `
     <button class="filter disabled">
-      <span>集团归属类型：</span>
+      <span>集团跟进类型：</span>
       <em>BABI 达播</em>
     </button>
     <button class="filter date">
@@ -205,15 +248,95 @@ function renderInfluencerTable() {
       </colgroup>
       <thead>
         <tr>
-          <th>归属平台</th>
+          <th>跟进平台</th>
           <th>达人信息</th>
-          <th>归属商务</th>
+          <th>跟进商务</th>
           <th>合作品类</th>
           <th>玩法</th>
           <th>重要程度</th>
           <th>首次跟进时间</th>
           <th>是否可合作新品</th>
-          <th>归属状态</th>
+          <th>跟进状态</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+  `;
+}
+
+function renderUnfollowedFilters() {
+  filters.innerHTML = `
+    <button class="filter disabled">
+      <span>统计范围：</span>
+      <em>当月达播未跟进</em>
+    </button>
+    <button class="filter date">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3" y="4" width="18" height="17" rx="2" />
+        <path d="M16 2v4" />
+        <path d="M8 2v4" />
+        <path d="M3 10h18" />
+      </svg>
+      <span>2026-06-01</span>
+      <span>-</span>
+      <span>2026-06-16</span>
+    </button>
+    <label class="filter input-filter">
+      <span>达人昵称:</span>
+      <input type="text" placeholder="请输入" />
+      <button class="select-arrow" aria-label="展开达人昵称">⌄</button>
+    </label>
+    <label class="filter input-filter">
+      <span>来源:</span>
+      <input type="text" placeholder="请输入" />
+      <button class="select-arrow" aria-label="展开来源">⌄</button>
+    </label>
+    <button class="clear-btn">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 12a9 9 0 0 1 14.65-7" />
+        <path d="M17 3v5h-5" />
+        <path d="M21 12a9 9 0 0 1-14.65 7" />
+        <path d="M7 21v-5h5" />
+      </svg>
+      <span>清空</span>
+    </button>
+  `;
+}
+
+function renderUnfollowedTable() {
+  const rows = unfollowedRows
+    .map(
+      (row) => `
+        <tr>
+          <td>${escapeHtml(row.name)}</td>
+          <td>${escapeHtml(row.uid)}</td>
+          <td>${escapeHtml(row.gmv)}</td>
+          <td>${escapeHtml(row.category)}</td>
+          <td>${escapeHtml(row.platform)}</td>
+          <td><span class="source-pill">${escapeHtml(row.source)}</span></td>
+        </tr>
+      `,
+    )
+    .join("");
+
+  tableWrap.innerHTML = `
+    <table>
+      <colgroup>
+        <col style="width: 270px" />
+        <col style="width: 230px" />
+        <col style="width: 220px" />
+        <col style="width: 260px" />
+        <col style="width: 180px" />
+        <col style="width: 240px" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th>达人昵称</th>
+          <th>UID</th>
+          <th>成交GMV</th>
+          <th>对应订单品类</th>
+          <th>平台</th>
+          <th>来源</th>
         </tr>
       </thead>
       <tbody>${rows}</tbody>
@@ -226,7 +349,20 @@ function renderInfluencerView() {
   metricGrid.innerHTML = influencerMetrics.map(renderMetricCard).join("");
   renderInfluencerFilters();
   renderInfluencerTable();
+  metricGrid.classList.remove("empty");
+  tableWrap.classList.remove("unfollowed-view");
   tableWrap.classList.add("influencer-view");
+  bindDynamicControls();
+}
+
+function renderUnfollowedView() {
+  currentView = "unfollowed";
+  metricGrid.innerHTML = "";
+  renderUnfollowedFilters();
+  renderUnfollowedTable();
+  metricGrid.classList.add("empty");
+  tableWrap.classList.remove("influencer-view");
+  tableWrap.classList.add("unfollowed-view");
   bindDynamicControls();
 }
 
@@ -235,7 +371,8 @@ function renderDefaultView() {
   metricGrid.innerHTML = defaultView.metrics;
   filters.innerHTML = defaultView.filters;
   tableWrap.innerHTML = defaultView.table;
-  tableWrap.classList.remove("influencer-view");
+  metricGrid.classList.remove("empty");
+  tableWrap.classList.remove("influencer-view", "unfollowed-view");
   bindDynamicControls();
 }
 
@@ -267,6 +404,8 @@ function bindFilters() {
       });
       if (currentView === "influencer") {
         renderInfluencerTable();
+      } else if (currentView === "unfollowed") {
+        renderUnfollowedTable();
       } else {
         tableWrap.innerHTML = defaultView.table;
         bindSortHeaders();
@@ -328,7 +467,7 @@ document.querySelectorAll(".page-tab").forEach((tab) => {
   });
 });
 
-businessTabs.forEach((tab, index) => {
+businessTabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     businessTabs.forEach((node) => {
       node.classList.remove("active");
@@ -337,12 +476,15 @@ businessTabs.forEach((tab, index) => {
     tab.classList.add("active");
     tab.setAttribute("aria-selected", "true");
 
-    if (index === 4) {
+    const tabName = tab.textContent.trim();
+    if (tabName === "达人") {
       renderInfluencerView();
+    } else if (tabName === "未跟进达人") {
+      renderUnfollowedView();
     } else {
       renderDefaultView();
     }
-    showToast(`当前维度：${tab.textContent}`);
+    showToast(`当前维度：${tabName}`);
   });
 });
 
