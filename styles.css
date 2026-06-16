@@ -389,11 +389,91 @@ h1 {
   line-height: 1;
 }
 
+.metric-label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  padding-top: 2px;
+}
+
 .metric-title {
   padding-top: 2px;
   color: #637586;
   font-weight: 500;
   white-space: nowrap;
+}
+
+.metric-help {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  border: 1px solid #aab7c6;
+  border-radius: 50%;
+  color: #8390a2;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.metric-help::before,
+.metric-help::after {
+  position: absolute;
+  left: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 6px);
+  transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.metric-help::before {
+  top: 24px;
+  width: 10px;
+  height: 10px;
+  background: #172336;
+  content: "";
+  transform: translate(-50%, 6px) rotate(45deg);
+}
+
+.metric-help::after {
+  top: 28px;
+  z-index: 50;
+  width: max-content;
+  max-width: 300px;
+  padding: 9px 11px;
+  border-radius: 6px;
+  background: #172336;
+  color: #fff;
+  content: attr(data-tooltip);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  text-align: left;
+  white-space: normal;
+  box-shadow: 0 10px 22px rgba(0, 21, 41, 0.18);
+}
+
+.metric-help:hover,
+.metric-help:focus-visible {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.metric-help:hover::before,
+.metric-help:hover::after,
+.metric-help:focus-visible::before,
+.metric-help:focus-visible::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.metric-help:hover::before,
+.metric-help:focus-visible::before {
+  transform: translate(-50%, 0) rotate(45deg);
 }
 
 .metric-card strong {
