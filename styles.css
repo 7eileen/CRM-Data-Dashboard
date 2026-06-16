@@ -659,6 +659,64 @@ td {
   border-top-color: var(--orange);
 }
 
+.table-wrap.influencer-view table {
+  min-width: 1740px;
+}
+
+.table-wrap.influencer-view th,
+.table-wrap.influencer-view td {
+  height: 58px;
+}
+
+.table-wrap.influencer-view tbody td {
+  height: 106px;
+  vertical-align: middle;
+}
+
+.creator-info {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.creator-avatar {
+  display: grid;
+  place-items: center;
+  width: 57px;
+  height: 57px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #c4c9d2;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.creator-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.creator-copy strong {
+  overflow: hidden;
+  color: #001529;
+  font-size: 18px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.creator-copy em {
+  overflow: hidden;
+  color: #8090a3;
+  font-size: 16px;
+  font-style: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .toast {
   position: fixed;
   left: 50%;
