@@ -97,7 +97,3 @@ document.querySelectorAll(".sortable").forEach((header) => {
 document.querySelector(".collapse-handle").addEventListener("click", () => {
   showToast("侧栏收起按钮已点击");
 });
-
-document.querySelector(".helper").addEventListener("click", () => {
-  showToast("你好，我是数据助手");
-});
