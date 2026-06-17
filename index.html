@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>新池工作台 - 团队数据看板</title>
-    <link rel="stylesheet" href="styles.css?v=20260617-orange-card-hover-numbers" />
+    <link rel="stylesheet" href="styles.css?v=20260617-follow-actions-selected" />
   </head>
   <body>
     <header class="topbar">
@@ -324,7 +324,36 @@
       </section>
     </main>
 
+    <div class="follow-modal" aria-hidden="true">
+      <div class="follow-modal-backdrop" data-close-follow></div>
+      <section class="follow-dialog" role="dialog" aria-modal="true" aria-labelledby="follow-dialog-title">
+        <header class="follow-dialog-header">
+          <h2 id="follow-dialog-title">达人计划合作品类</h2>
+          <button class="dialog-close" type="button" aria-label="关闭" data-close-follow>×</button>
+        </header>
+        <div class="follow-dialog-body">
+          <p class="category-label"><span>*</span> 合作品类</p>
+          <div class="category-options">
+            <label><input type="checkbox" checked /> 定型</label>
+            <label><input type="checkbox" checked /> 定妆</label>
+            <label><input type="checkbox" checked /> 粉底</label>
+            <label><input type="checkbox" checked /> 防晒喷雾</label>
+            <label><input type="checkbox" checked /> 气垫</label>
+            <label><input type="checkbox" checked /> 遮瑕</label>
+            <label><input type="checkbox" checked /> 防晒素颜霜</label>
+            <label><input type="checkbox" checked /> 防晒定妆喷雾</label>
+            <label><input type="checkbox" checked /> 双头修容</label>
+            <label><input type="checkbox" checked /> 四色修容盘</label>
+            <label><input type="checkbox" /> 其他</label>
+          </div>
+        </div>
+        <footer class="follow-dialog-actions">
+          <button class="dialog-cancel" type="button" data-close-follow>取 消</button>
+          <button class="dialog-confirm" type="button">确 定</button>
+        </footer>
+      </section>
+    </div>
     <div class="toast" role="status" aria-live="polite"></div>
-    <script src="script.js?v=20260617-unfollowed-gmv-sort"></script>
+    <script src="script.js?v=20260617-follow-actions-selected"></script>
   </body>
 </html>

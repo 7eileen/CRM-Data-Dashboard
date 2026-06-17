@@ -2,6 +2,8 @@ const toast = document.querySelector(".toast");
 const metricGrid = document.querySelector(".metric-grid");
 const filters = document.querySelector(".filters");
 const tableWrap = document.querySelector(".table-wrap");
+const followModal = document.querySelector(".follow-modal");
+const followConfirmButton = document.querySelector(".dialog-confirm");
 const businessTabs = Array.from(document.querySelectorAll(".business-tabs button"));
 const defaultView = {
   metrics: metricGrid.innerHTML,
@@ -314,6 +316,12 @@ function renderUnfollowedTable() {
           <td>${escapeHtml(row.category)}</td>
           <td>${escapeHtml(row.platform)}</td>
           <td><span class="source-pill">${escapeHtml(row.source)}</span></td>
+          <td>
+            <div class="operation-cell">
+              <button class="table-action follow-record-btn" type="button" data-name="${escapeHtml(row.name)}">达人跟进记录</button>
+              <button class="table-action confirm-follow-btn" type="button" data-name="${escapeHtml(row.name)}">确认跟进</button>
+            </div>
+          </td>
         </tr>
       `,
     )
@@ -328,6 +336,7 @@ function renderUnfollowedTable() {
         <col style="width: 260px" />
         <col style="width: 180px" />
         <col style="width: 240px" />
+        <col style="width: 270px" />
       </colgroup>
       <thead>
         <tr>
@@ -337,6 +346,7 @@ function renderUnfollowedTable() {
           <th>对应订单品类</th>
           <th>平台</th>
           <th>来源</th>
+          <th>操作</th>
         </tr>
       </thead>
       <tbody>${rows}</tbody>
@@ -446,10 +456,38 @@ function parseSortableNumber(value) {
   return Number.isNaN(parsed) ? 0 : parsed;
 }
 
+function bindFollowActions() {
+  tableWrap.querySelectorAll(".follow-record-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      showToast(`已打开：${button.dataset.name} 达人跟进记录`);
+    });
+  });
+
+  tableWrap.querySelectorAll(".confirm-follow-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      openFollowModal(button.dataset.name);
+    });
+  });
+}
+
+function openFollowModal(name) {
+  if (!followModal) return;
+  followModal.dataset.creator = name || "";
+  followModal.classList.add("open");
+  followModal.setAttribute("aria-hidden", "false");
+}
+
+function closeFollowModal() {
+  if (!followModal) return;
+  followModal.classList.remove("open");
+  followModal.setAttribute("aria-hidden", "true");
+}
+
 function bindDynamicControls() {
   bindMetricCards();
   bindFilters();
   bindSortHeaders();
+  bindFollowActions();
 }
 
 document.querySelectorAll(".nav-item").forEach((item) => {
@@ -497,6 +535,24 @@ businessTabs.forEach((tab) => {
 
 document.querySelector(".collapse-handle").addEventListener("click", () => {
   showToast("侧栏收起按钮已点击");
+});
+
+document.querySelectorAll("[data-close-follow]").forEach((button) => {
+  button.addEventListener("click", closeFollowModal);
+});
+
+if (followConfirmButton) {
+  followConfirmButton.addEventListener("click", () => {
+    const creatorName = followModal?.dataset.creator || "达人";
+    closeFollowModal();
+    showToast(`${creatorName} 已确认跟进`);
+  });
+}
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && followModal?.classList.contains("open")) {
+    closeFollowModal();
+  }
 });
 
 bindDynamicControls();
