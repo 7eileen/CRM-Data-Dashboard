@@ -762,8 +762,8 @@ tbody tr:hover {
   height: 28px;
   padding: 0 12px;
   border-radius: 999px;
-  background: #edf3ff;
-  color: #267bd9;
+  background: #fff3e5;
+  color: var(--orange);
   font-size: 15px;
   font-weight: 700;
 }
