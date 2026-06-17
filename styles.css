@@ -376,12 +376,10 @@ h1 {
 
 .metric-card {
   position: relative;
-  display: grid;
-  grid-template-columns: 20px minmax(0, 1fr);
-  grid-template-rows: 28px 1fr;
-  column-gap: 8px;
-  align-items: start;
+  display: flex;
   min-height: 128px;
+  flex-direction: column;
+  justify-content: flex-start;
   padding: 19px 18px 18px;
   border: 1px solid #eef1f5;
   border-radius: 8px;
@@ -423,16 +421,7 @@ h1 {
 }
 
 .metric-icon {
-  display: grid;
-  place-items: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--badge);
-  color: #fff;
-  font-size: 16px;
-  font-weight: 800;
-  line-height: 1;
+  display: none;
 }
 
 .metric-label {
@@ -525,12 +514,11 @@ h1 {
 }
 
 .metric-card strong {
-  grid-column: 1 / -1;
   display: block;
-  align-self: center;
+  align-self: flex-start;
   max-width: 100%;
   min-width: 0;
-  margin-top: 15px;
+  margin-top: 18px;
   padding-top: 0;
   color: #06192f;
   overflow: hidden;
