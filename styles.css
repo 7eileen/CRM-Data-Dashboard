@@ -398,6 +398,16 @@ h1 {
   transform: translateY(-1px) scale(1.012);
 }
 
+.metric-card:hover .metric-title,
+.metric-card:hover strong,
+.metric-card:hover .metric-help {
+  color: var(--orange);
+}
+
+.metric-card:hover .metric-help {
+  border-color: var(--orange);
+}
+
 .metric-card.selected {
   border-color: #ff725c;
   background: #fffafa;
