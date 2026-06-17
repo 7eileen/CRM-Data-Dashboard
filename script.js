@@ -333,7 +333,7 @@ function renderUnfollowedTable() {
         <tr>
           <th>达人昵称</th>
           <th>UID</th>
-          <th>成交GMV</th>
+          <th class="sortable" data-sort="gmv">成交GMV <span></span></th>
           <th>对应订单品类</th>
           <th>平台</th>
           <th>来源</th>
@@ -406,6 +406,7 @@ function bindFilters() {
         renderInfluencerTable();
       } else if (currentView === "unfollowed") {
         renderUnfollowedTable();
+        bindSortHeaders();
       } else {
         tableWrap.innerHTML = defaultView.table;
         bindSortHeaders();
@@ -428,8 +429,8 @@ function bindSortHeaders() {
 
       rows
         .sort((a, b) => {
-          const aValue = Number(a.children[index].textContent);
-          const bValue = Number(b.children[index].textContent);
+          const aValue = parseSortableNumber(a.children[index].textContent);
+          const bValue = parseSortableNumber(b.children[index].textContent);
           return isDescending ? bValue - aValue : aValue - bValue;
         })
         .forEach((row) => tableBody.appendChild(row));
@@ -437,6 +438,12 @@ function bindSortHeaders() {
       showToast(`${header.textContent.trim()}已${isDescending ? "降序" : "升序"}排列`);
     });
   });
+}
+
+function parseSortableNumber(value) {
+  const normalized = String(value).replace(/,/g, "").trim();
+  const parsed = Number(normalized);
+  return Number.isNaN(parsed) ? 0 : parsed;
 }
 
 function bindDynamicControls() {
