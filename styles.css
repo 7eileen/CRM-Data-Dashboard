@@ -393,7 +393,7 @@ h1 {
 .metric-card:hover {
   z-index: 1;
   border-color: #ff8a72;
-  background: #fff;
+  background: #f7f8fa;
   box-shadow: 0 10px 22px rgba(255, 114, 92, 0.14);
   transform: translateY(-1px) scale(1.012);
 }
@@ -686,7 +686,11 @@ tbody tr {
 }
 
 tbody tr:hover {
-  background: #fbfdff;
+  background: #fff3e5;
+}
+
+tbody tr:hover td {
+  color: var(--orange);
 }
 
 .sortable {
