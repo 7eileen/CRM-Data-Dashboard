@@ -388,35 +388,11 @@ h1 {
   transition: border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
 }
 
-.metric-card::after {
-  position: absolute;
-  top: 13px;
-  right: 13px;
-  display: grid;
-  place-items: center;
-  width: 18px;
-  height: 18px;
-  border: 1px solid #d9dee7;
-  border-radius: 50%;
-  background: #f9fafb;
-  color: #fff;
-  content: "";
-  font-size: 12px;
-  font-weight: 800;
-  line-height: 1;
-}
-
 .metric-card:hover,
 .metric-card.selected {
   border-color: #ff725c;
   background: #fffafa;
   box-shadow: none;
-}
-
-.metric-card.selected::after {
-  border-color: #ff725c;
-  background: #ff725c;
-  content: "✓";
 }
 
 .metric-card.amber {
@@ -445,7 +421,7 @@ h1 {
   align-items: center;
   gap: 6px;
   min-width: 0;
-  max-width: calc(100% - 26px);
+  max-width: 100%;
   padding-top: 0;
 }
 
