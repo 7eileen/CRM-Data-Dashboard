@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>新池工作台 - 团队数据看板</title>
-    <link rel="stylesheet" href="styles.css?v=20260618-follow-form-modal" />
+    <link rel="stylesheet" href="styles.css?v=20260618-tooltip-copy" />
   </head>
   <body>
     <header class="topbar">
@@ -112,7 +112,7 @@
               <span class="metric-icon">◔</span>
               <span class="metric-label">
                 <span class="metric-title">达播总GMV</span>
-                <span class="metric-help" data-tooltip="达播GMV = 查询时间段内玩法是达播的成交净额 + 查询时间段内玩法是达播的退款金额">?</span>
+                <span class="metric-help" data-tooltip="查询时间范围内，所有达播+达人自然流订单产生的成交总金额。">?</span>
               </span>
               <strong>39,559,047.87</strong>
             </button>
@@ -120,7 +120,7 @@
               <span class="metric-icon">◔</span>
               <span class="metric-label">
                 <span class="metric-title">达人自然流GMV</span>
-                <span class="metric-help" data-tooltip="查询时间段内达人自然流产生的GMV">?</span>
+                <span class="metric-help" data-tooltip="查询时间范围内，达人自然流订单产生的成交总金额。">?</span>
               </span>
               <strong>12,468,209.36</strong>
             </button>
@@ -128,7 +128,7 @@
               <span class="metric-icon">◔</span>
               <span class="metric-label">
                 <span class="metric-title">达播跟进GMV</span>
-                <span class="metric-help" data-tooltip="查询时间段内经商务跟进产生的达播GMV">?</span>
+                <span class="metric-help" data-tooltip="查询时间范围内，由商务crm跟进后产生的达播成交金额。">?</span>
               </span>
               <strong>27,090,838.51</strong>
             </button>
@@ -136,7 +136,7 @@
               <span class="metric-icon">◔</span>
               <span class="metric-label">
                 <span class="metric-title">达人总数</span>
-                <span class="metric-help" data-tooltip="每组关联的达人数，所有组加起来">?</span>
+                <span class="metric-help" data-tooltip="当前统计口径下，已归属到团队或人员名下的达人总数量。">?</span>
               </span>
               <strong>1,333</strong>
             </button>
@@ -144,7 +144,7 @@
               <span class="metric-icon">◔</span>
               <span class="metric-label">
                 <span class="metric-title">达人GSV</span>
-                <span class="metric-help" data-tooltip="每个达人日成交记录中，匹配该组品类的支付金额，在查询时间段内求和">?</span>
+                <span class="metric-help" data-tooltip="查询时间范围内，归属达人产生的有效成交金额。">?</span>
               </span>
               <strong>39,385,501.17</strong>
             </button>
@@ -152,7 +152,7 @@
               <span class="metric-icon">◔</span>
               <span class="metric-label">
                 <span class="metric-title">新增达人数</span>
-                <span class="metric-help" data-tooltip="达人首次跟进时间落在查询时间段内的数量">?</span>
+                <span class="metric-help" data-tooltip="查询时间范围内，首次进入跟进或首次归属到团队的达人数量。">?</span>
               </span>
               <strong>580</strong>
             </button>
@@ -160,7 +160,7 @@
               <span class="metric-icon">◔</span>
               <span class="metric-label">
                 <span class="metric-title">建联成功数</span>
-                <span class="metric-help" data-tooltip="达人标记为已联系，且首次跟进时间在查询时间段内">?</span>
+                <span class="metric-help" data-tooltip="查询时间范围内，已完成有效联系并被标记为建联成功的达人数量。">?</span>
               </span>
               <strong>522</strong>
             </button>
@@ -168,7 +168,7 @@
               <span class="metric-icon">◔</span>
               <span class="metric-label">
                 <span class="metric-title">新增开单达人数</span>
-                <span class="metric-help" data-tooltip="达人流转状态为“合作”及以上，且首次跟进时间在查询时间段内">?</span>
+                <span class="metric-help" data-tooltip="查询时间范围内，首次产生合作成交的达人数量。">?</span>
               </span>
               <strong>73</strong>
             </button>
@@ -176,7 +176,7 @@
               <span class="metric-icon">◔</span>
               <span class="metric-label">
                 <span class="metric-title">新增开单GSV</span>
-                <span class="metric-help" data-tooltip="同达人GSV口径，但只统计首次跟进时间在查询时间段内的达人">?</span>
+                <span class="metric-help" data-tooltip="查询时间范围内，新增开单达人贡献的有效成交金额。">?</span>
               </span>
               <strong>4,851,014.64</strong>
             </button>
@@ -184,7 +184,7 @@
               <span class="metric-icon">◔</span>
               <span class="metric-label">
                 <span class="metric-title">寄样达人数</span>
-                <span class="metric-help" data-tooltip="查询时间段内该商务的寄样订单记录数，仅当达人首次跟进时间在范围内时才统计">?</span>
+                <span class="metric-help" data-tooltip="查询时间范围内，产生过寄样记录的达人数量。">?</span>
               </span>
               <strong>1,999</strong>
             </button>
@@ -192,7 +192,7 @@
               <span class="metric-icon">◔</span>
               <span class="metric-label">
                 <span class="metric-title">寄样件数</span>
-                <span class="metric-help" data-tooltip="寄样订单中所有商品的数量之和，按品类维度时只统计当前品类">?</span>
+                <span class="metric-help" data-tooltip="查询时间范围内，寄样订单中实际寄出的商品件数合计。">?</span>
               </span>
               <strong>0</strong>
             </button>
@@ -404,6 +404,6 @@
       </section>
     </div>
     <div class="toast" role="status" aria-live="polite"></div>
-    <script src="script.js?v=20260618-follow-form-modal"></script>
+    <script src="script.js?v=20260618-tooltip-copy"></script>
   </body>
 </html>
