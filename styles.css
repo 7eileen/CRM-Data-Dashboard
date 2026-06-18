@@ -764,6 +764,10 @@ tbody tr:hover td {
   min-width: 1670px;
 }
 
+.table-wrap.unfollowed-view {
+  overflow-x: auto;
+}
+
 .table-wrap.influencer-view th,
 .table-wrap.influencer-view td,
 .table-wrap.unfollowed-view th,
@@ -779,6 +783,24 @@ tbody tr:hover td {
 .table-wrap.unfollowed-view tbody td {
   height: 68px;
   vertical-align: middle;
+}
+
+.table-wrap.unfollowed-view th:last-child,
+.table-wrap.unfollowed-view td:last-child {
+  position: sticky;
+  right: 0;
+  z-index: 2;
+  background: #fff;
+  box-shadow: -12px 0 18px rgba(18, 36, 66, 0.08);
+}
+
+.table-wrap.unfollowed-view th:last-child {
+  z-index: 3;
+  background: #fbfcfe;
+}
+
+.table-wrap.unfollowed-view tbody tr:hover td:last-child {
+  background: #fff3e5;
 }
 
 .source-pill {
