@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>新池工作台 - 团队数据看板</title>
-    <link rel="stylesheet" href="styles.css?v=20260618-confirm-only-table" />
+    <link rel="stylesheet" href="styles.css?v=20260618-follow-form-modal" />
   </head>
   <body>
     <header class="topbar">
@@ -326,26 +326,75 @@
 
     <div class="follow-modal" aria-hidden="true">
       <div class="follow-modal-backdrop" data-close-follow></div>
-      <section class="follow-dialog" role="dialog" aria-modal="true" aria-labelledby="follow-dialog-title">
-        <header class="follow-dialog-header">
-          <h2 id="follow-dialog-title">达人计划合作品类</h2>
-          <button class="dialog-close" type="button" aria-label="关闭" data-close-follow>×</button>
-        </header>
-        <div class="follow-dialog-body">
-          <p class="category-label"><span>*</span> 合作品类</p>
-          <div class="category-options">
-            <label><input type="checkbox" checked /> 定型</label>
-            <label><input type="checkbox" checked /> 定妆</label>
-            <label><input type="checkbox" checked /> 粉底</label>
-            <label><input type="checkbox" checked /> 防晒喷雾</label>
-            <label><input type="checkbox" checked /> 气垫</label>
-            <label><input type="checkbox" checked /> 遮瑕</label>
-            <label><input type="checkbox" checked /> 防晒素颜霜</label>
-            <label><input type="checkbox" checked /> 防晒定妆喷雾</label>
-            <label><input type="checkbox" checked /> 双头修容</label>
-            <label><input type="checkbox" checked /> 四色修容盘</label>
-            <label><input type="checkbox" checked /> 防晒水</label>
-            <label><input type="checkbox" /> 其他</label>
+      <section class="follow-dialog follow-form-dialog" role="dialog" aria-modal="true" aria-labelledby="follow-dialog-title">
+        <button class="dialog-close follow-form-close" type="button" aria-label="关闭" data-close-follow>×</button>
+        <h2 id="follow-dialog-title" class="sr-only">确认跟进</h2>
+        <div class="follow-dialog-body follow-form-body">
+          <div class="follow-form-grid">
+            <label class="follow-field required">
+              <span>集团归属类型</span>
+              <input id="follow-group-type" type="text" value="-" disabled />
+            </label>
+            <label class="follow-field required">
+              <span>归属平台</span>
+              <span class="select-input">
+                <input id="follow-platform" type="text" placeholder="请选择归属平台" readonly />
+                <em>⌄</em>
+              </span>
+            </label>
+            <label class="follow-field required">
+              <span>达人来源</span>
+              <span class="select-input">
+                <input id="follow-source" type="text" placeholder="请选择达人来源" readonly />
+                <em>⌄</em>
+              </span>
+            </label>
+            <label class="follow-field required">
+              <span>达人名称</span>
+              <input id="follow-creator-name" type="text" placeholder="请输入达人名称" />
+            </label>
+            <label class="follow-field required">
+              <span>达人UID</span>
+              <input id="follow-uid" type="text" placeholder="请输入达人UID" />
+            </label>
+            <button class="uid-help" type="button">↗ 达人UID获取方式</button>
+            <fieldset class="follow-field follow-field-full category-field required">
+              <legend>合作品类</legend>
+              <div class="category-options">
+                <label><input type="checkbox" checked /> 定型</label>
+                <label><input type="checkbox" checked /> 定妆</label>
+                <label><input type="checkbox" checked /> 粉底</label>
+                <label><input type="checkbox" checked /> 防晒喷雾</label>
+                <label><input type="checkbox" checked /> 气垫</label>
+                <label><input type="checkbox" checked /> 遮瑕</label>
+                <label><input type="checkbox" checked /> 防晒素颜霜</label>
+                <label><input type="checkbox" checked /> 防晒定妆喷雾</label>
+                <label><input type="checkbox" checked /> 双头修容</label>
+                <label><input type="checkbox" checked /> 四色修容盘</label>
+                <label><input type="checkbox" checked /> 防晒水</label>
+                <label class="muted-option"><input type="checkbox" /> 其他</label>
+              </div>
+            </fieldset>
+            <label class="follow-field required">
+              <span>粉丝数</span>
+              <input id="follow-fans" type="text" placeholder="请输入粉丝数" />
+            </label>
+            <label class="follow-field">
+              <span>粉丝画像</span>
+              <input id="follow-fans-profile" type="text" placeholder="请输入粉丝画像" />
+            </label>
+            <label class="follow-field required">
+              <span>带货类目</span>
+              <input id="follow-category" type="text" placeholder="请输入带货类目" />
+            </label>
+            <label class="follow-field required">
+              <span>近30天交易额</span>
+              <input id="follow-30-days-gmv" type="text" placeholder="请输入近 30 天交易额（若无准确数据可预估）" />
+            </label>
+            <label class="follow-field">
+              <span>场均交易额</span>
+              <input id="follow-average-gmv" type="text" placeholder="请输入场均交易额" />
+            </label>
           </div>
         </div>
         <footer class="follow-dialog-actions">
@@ -355,6 +404,6 @@
       </section>
     </div>
     <div class="toast" role="status" aria-live="polite"></div>
-    <script src="script.js?v=20260618-confirm-only-table"></script>
+    <script src="script.js?v=20260618-follow-form-modal"></script>
   </body>
 </html>

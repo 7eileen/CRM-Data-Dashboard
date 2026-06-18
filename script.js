@@ -318,7 +318,16 @@ function renderUnfollowedTable() {
           <td><span class="source-pill">${escapeHtml(row.source)}</span></td>
           <td>
             <div class="operation-cell">
-              <button class="table-action confirm-follow-btn" type="button" data-name="${escapeHtml(row.name)}">确认跟进</button>
+              <button
+                class="table-action confirm-follow-btn"
+                type="button"
+                data-name="${escapeHtml(row.name)}"
+                data-uid="${escapeHtml(row.uid)}"
+                data-category="${escapeHtml(row.category)}"
+                data-platform="${escapeHtml(row.platform)}"
+                data-source="${escapeHtml(row.source)}"
+                data-gmv="${escapeHtml(row.gmv)}"
+              >确认跟进</button>
             </div>
           </td>
         </tr>
@@ -458,16 +467,28 @@ function parseSortableNumber(value) {
 function bindFollowActions() {
   tableWrap.querySelectorAll(".confirm-follow-btn").forEach((button) => {
     button.addEventListener("click", () => {
-      openFollowModal(button.dataset.name);
+      openFollowModal(button.dataset);
     });
   });
 }
 
-function openFollowModal(name) {
+function openFollowModal(creator) {
   if (!followModal) return;
-  followModal.dataset.creator = name || "";
+  const creatorData = typeof creator === "string" ? { name: creator } : creator || {};
+  followModal.dataset.creator = creatorData.name || "";
+  setFollowFieldValue("#follow-platform", creatorData.platform || "");
+  setFollowFieldValue("#follow-source", creatorData.source || "");
+  setFollowFieldValue("#follow-creator-name", creatorData.name || "");
+  setFollowFieldValue("#follow-uid", creatorData.uid || "");
+  setFollowFieldValue("#follow-category", creatorData.category || "");
+  setFollowFieldValue("#follow-30-days-gmv", creatorData.gmv || "");
   followModal.classList.add("open");
   followModal.setAttribute("aria-hidden", "false");
+}
+
+function setFollowFieldValue(selector, value) {
+  const field = followModal?.querySelector(selector);
+  if (field) field.value = value;
 }
 
 function closeFollowModal() {
