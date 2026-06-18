@@ -318,7 +318,6 @@ function renderUnfollowedTable() {
           <td><span class="source-pill">${escapeHtml(row.source)}</span></td>
           <td>
             <div class="operation-cell">
-              <button class="table-action follow-record-btn" type="button" data-name="${escapeHtml(row.name)}">达人跟进记录</button>
               <button class="table-action confirm-follow-btn" type="button" data-name="${escapeHtml(row.name)}">确认跟进</button>
             </div>
           </td>
@@ -330,13 +329,13 @@ function renderUnfollowedTable() {
   tableWrap.innerHTML = `
     <table>
       <colgroup>
-        <col style="width: 270px" />
-        <col style="width: 230px" />
-        <col style="width: 220px" />
-        <col style="width: 260px" />
-        <col style="width: 180px" />
-        <col style="width: 240px" />
-        <col style="width: 270px" />
+        <col style="width: 18%" />
+        <col style="width: 15%" />
+        <col style="width: 15%" />
+        <col style="width: 18%" />
+        <col style="width: 10%" />
+        <col style="width: 13%" />
+        <col style="width: 11%" />
       </colgroup>
       <thead>
         <tr>
@@ -457,12 +456,6 @@ function parseSortableNumber(value) {
 }
 
 function bindFollowActions() {
-  tableWrap.querySelectorAll(".follow-record-btn").forEach((button) => {
-    button.addEventListener("click", () => {
-      showToast(`已打开：${button.dataset.name} 达人跟进记录`);
-    });
-  });
-
   tableWrap.querySelectorAll(".confirm-follow-btn").forEach((button) => {
     button.addEventListener("click", () => {
       openFollowModal(button.dataset.name);

@@ -761,11 +761,7 @@ tbody tr:hover td {
 }
 
 .table-wrap.unfollowed-view table {
-  min-width: 1670px;
-}
-
-.table-wrap.unfollowed-view {
-  overflow-x: auto;
+  min-width: 0;
 }
 
 .table-wrap.influencer-view th,
@@ -785,22 +781,10 @@ tbody tr:hover td {
   vertical-align: middle;
 }
 
-.table-wrap.unfollowed-view th:last-child,
-.table-wrap.unfollowed-view td:last-child {
-  position: sticky;
-  right: 0;
-  z-index: 2;
-  background: #fff;
-  box-shadow: -12px 0 18px rgba(18, 36, 66, 0.08);
-}
-
-.table-wrap.unfollowed-view th:last-child {
-  z-index: 3;
-  background: #fbfcfe;
-}
-
-.table-wrap.unfollowed-view tbody tr:hover td:last-child {
-  background: #fff3e5;
+.table-wrap.unfollowed-view th,
+.table-wrap.unfollowed-view td {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .source-pill {
@@ -818,7 +802,7 @@ tbody tr:hover td {
 .operation-cell {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 0;
 }
 
 .table-action {
